@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .font-minecraft {
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .minecraft-button {
+    @apply bg-green-600 hover:bg-green-700 text-white font-minecraft text-lg px-6 py-3;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #1a1a1a;
+    box-shadow: inset -2px -4px 0px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .minecraft-button:active {
+    box-shadow: inset 2px 4px 0px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+  }
+
+  .minecraft-border {
+    @apply border-2 border-green-800;
+    position: relative;
+    box-shadow: inset -2px -4px 0px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .minecraft-panel {
+    @apply bg-zinc-800/90 p-6 backdrop-blur-sm;
+    border: 2px solid #333;
+    position: relative;
+    box-shadow: inset -2px -4px 0px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+  }
+
+  .minecraft-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3), 0 0 30px rgba(0, 255, 0, 0.1);
+  }
+
+  /* Animated block animation */
+  .minecraft-block {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  /* Minecraft styled background patterns */
+  .minecraft-dirt-bg {
+    background-color: #7B5D3F;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23634b33' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  }
+
+  .minecraft-stone-bg {
+    background-color: #8A8A8A;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23777777' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  }
+}
+
+/* Minecraft styled scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border: 1px solid #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
